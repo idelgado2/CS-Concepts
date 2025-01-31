@@ -1,3 +1,7 @@
+/* -------------------------------------------------------------------------- */
+/*                         Linked List Implementation                         */
+/* -------------------------------------------------------------------------- */
+
 /**
  * Node definition
  *
@@ -11,6 +15,12 @@ class Node {
   }
 }
 
+/**
+ * LinkedList Implementation
+ *
+ * @class LinkedList
+ * @typedef {LinkedList}
+ */
 class LinkedList {
   constructor() {
     this.head = null;
@@ -154,6 +164,8 @@ class LinkedList {
     console.log(dataList);
   }
 }
+
+/* ----------------------------- Linked List Use ---------------------------- */
 
 let linkedList = new LinkedList();
 console.log("Default list");
