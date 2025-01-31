@@ -4,7 +4,7 @@
 
 /**
  * Stack Array Implementation
- *
+ * Fist In First Out (FIFO)
  * @class Stack
  * @typedef {Stack}
  */

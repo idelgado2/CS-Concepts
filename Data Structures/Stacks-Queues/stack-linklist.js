@@ -17,7 +17,7 @@ class Node {
 
 /**
  * Stack Linked List Implementation
- *
+ * Fist In First Out (FIFO)
  * @class Stack
  * @typedef {Stack}
  */
