@@ -24,25 +24,59 @@ class HashTable {
   }
 
   set(key, value) {
-    const index = this.hash(key);
-    this.table[index] = [key, value];
+    let index = this.hash(key);
+    if (this.table[index]) {
+      //if index collision happens
+      //check if key already exist which means we are reassinging
+      for (let i = 0; i < this.table[index].length; i++) {
+        if (this.table[index][i][0] === key) {
+          this.table[index][i][1] = value;
+          return;
+        }
+      }
+      this.table[index].push([key, value]);
+    } else {
+      // no index collision
+      this.table[index] = [];
+      this.table[index].push([key, value]);
+    }
     this.size++;
   }
 
   get(key) {
     let index = this.hash(key);
-    return this.table[index];
+    if (this.table[index]) {
+      for (let i = 0; i < this.table[index].length; i++) {
+        if (this.table[index][i][0] === key) {
+          return this.table[index][i][1];
+        }
+      }
+    }
+    return undefined;
   }
 
   remove(key) {
     let index = this.hash(key);
     if (this.table.size !== 0 && this.table[index]) {
-      this.table[index] = undefined;
-      this.size--;
-      return truel;
+      for (let i = 0; i < this.table[index].length; i++) {
+        if (this.table[index][i][0] === key) {
+          this.table[index].splice(i, 1);
+          this.size--;
+          return true;
+        }
+      }
     } else {
       return false;
     }
+  }
+
+  display() {
+    this.table.forEach((values, index) => {
+      const chainedValues = values.map(
+        ([key, value]) => `[ ${key}: ${value} ]`
+      );
+      console.log(`${index}: ${chainedValues}`);
+    });
   }
 }
 
@@ -50,10 +84,18 @@ const ht = new HashTable();
 ht.set("Canada", 300);
 ht.set("France", 100);
 ht.set("Spain", 110);
+ht.set("ǻ", 192);
 
 console.log(ht.get("Canada"));
 console.log(ht.get("France"));
 console.log(ht.get("Spain"));
+console.log(ht.get("ǻ"));
+
+ht.display();
+
+console.log(ht.remove("Spain")); // true
+console.log(ht.get("Spain")); // undefined
+ht.display();
 
 /* -------------------------------------------------------------------------- */
 /*                      Object Hash Table Implementation                      */
