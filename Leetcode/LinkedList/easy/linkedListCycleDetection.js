@@ -1,7 +1,4 @@
-import {
-  Node,
-  LinkedList,
-} from "../../../Data Structures/LinkedLIst/linkedlist.js";
+import { LinkedList } from "../../../Data Structures/LinkedLIst/linkedlist.js";
 
 /**
  * Detect cycle in linked list

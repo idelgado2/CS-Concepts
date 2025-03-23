@@ -1,4 +1,4 @@
-class Node {
+export class Node {
   constructor(data) {
     this.data = data;
     this.left = null;
@@ -6,9 +6,14 @@ class Node {
   }
 }
 
-class BST {
-  constructor() {
+export class BST {
+  constructor(...args) {
     this.root = null;
+    if (args.length !== 0) {
+      args[0].map((x) => {
+        this.insert(x);
+      });
+    }
   }
 
   getRootNode() {
@@ -111,43 +116,58 @@ class BST {
     else if (data > node.data) return this.search(node.right, data);
     else return node;
   }
+
+  printNode(node, level) {
+    if (!node) {
+      return;
+    }
+
+    this.printNode(node.right, level + 1);
+    let indentation = "    ".repeat(level);
+    console.log(indentation + node.data);
+    this.printNode(node.left, level + 1);
+  }
+
+  printTree() {
+    this.printNode(this.root, 0);
+  }
 }
 
-let tree = new BST();
-let dataset = [15, 25, 10, 7, 22, 17, 13, 5, 9, 27];
+// let tree = new BST();
+// let dataset = [15, 25, 10, 7, 22, 17, 13, 5, 9, 27];
 
-dataset.map((x) => {
-  tree.insert(x);
-});
+// dataset.map((x) => {
+//   tree.insert(x);
+// });
 
-var root = tree.getRootNode();
-console.log(`root: ${root.data}`);
-tree.inorder(root);
-console.log("------------");
-tree.remove(5);
-var root = tree.getRootNode();
-console.log(`root: ${root.data}`);
-tree.inorder(root);
-console.log("------------");
+// var root = tree.getRootNode();
+// console.log(`root: ${root.data}`);
+// tree.inorder(root);
+// console.log("------------");
+// tree.remove(5);
+// var root = tree.getRootNode();
+// console.log(`root: ${root.data}`);
+// tree.inorder(root);
+// console.log("------------");
 
-tree.remove(7);
-var root = tree.getRootNode();
-console.log(`root: ${root.data}`);
+// tree.remove(7);
+// var root = tree.getRootNode();
+// console.log(`root: ${root.data}`);
 
-tree.inorder(root);
-console.log("------------");
+// tree.inorder(root);
+// console.log("------------");
 
-tree.remove(15);
-var root = tree.getRootNode();
-console.log(`root: ${root.data}`);
+// tree.remove(15);
+// var root = tree.getRootNode();
+// console.log(`root: ${root.data}`);
 
-console.log("inorder traversal");
-tree.inorder(root);
-console.log("------------");
+// console.log("inorder traversal");
+// tree.inorder(root);
+// console.log("------------");
 
-console.log("postorder traversal");
-tree.postorder(root);
-console.log("------------");
+// console.log("postorder traversal");
+// tree.postorder(root);
+// console.log("------------");
 
-console.log("preorder traversal");
-tree.preorder(root);
+// console.log("preorder traversal");
+// tree.preorder(root);

@@ -8,7 +8,7 @@
  * @class Queue
  * @typedef {Queue}
  */
-class Queue {
+export class Queue {
   constructor() {
     this.queue = [];
   }
@@ -31,6 +31,15 @@ class Queue {
     return this.queue.shift();
   }
 
+  /**
+   * Check if queue is empty
+   *
+   * @returns {boolean}
+   */
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+
   /** print all elements in queue but does not remove them */
   printQueue() {
     console.log(this.queue);
@@ -39,14 +48,14 @@ class Queue {
 
 /* -------------------------------- Queue Use ------------------------------- */
 
-let queue = new Queue();
-queue.enqueue(10);
-queue.enqueue(15);
-queue.enqueue(20);
-queue.enqueue(25);
+// let queue = new Queue();
+// queue.enqueue(10);
+// queue.enqueue(15);
+// queue.enqueue(20);
+// queue.enqueue(25);
 
-queue.printQueue();
+// queue.printQueue();
 
-console.log(queue.dequeue());
+// console.log(queue.dequeue());
 
-queue.printQueue();
+// queue.printQueue();

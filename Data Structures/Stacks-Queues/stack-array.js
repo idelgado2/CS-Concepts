@@ -8,7 +8,7 @@
  * @class Stack
  * @typedef {Stack}
  */
-class Stack {
+export class Stack {
   constructor() {
     this.stack = [];
   }
@@ -24,7 +24,16 @@ class Stack {
 
   /** remove top element of stack */
   pop() {
-    this.stack.pop();
+    return this.stack.pop();
+  }
+
+  /**
+   * Check if stack is empty
+   *
+   * @returns {boolean}
+   */
+  isEmpty() {
+    return this.stack.length === 0;
   }
 
   /** print out stack */
@@ -40,22 +49,22 @@ class Stack {
 
 /* -------------------------------- Stack Use ------------------------------- */
 
-let stack = new Stack();
+// let stack = new Stack();
 
-stack.push(10);
-stack.push(15);
-stack.push(20);
-stack.push(25);
-stack.printStack();
-console.log("---printStack---");
+// stack.push(10);
+// stack.push(15);
+// stack.push(20);
+// stack.push(25);
+// stack.printStack();
+// console.log("---printStack---");
 
-console.log("---pop---");
-stack.pop();
-console.log("---printStack---");
-stack.printStack();
+// console.log("---pop---");
+// stack.pop();
+// console.log("---printStack---");
+// stack.printStack();
 
-console.log("---popFullStack---");
-stack.popFullStack();
+// console.log("---popFullStack---");
+// stack.popFullStack();
 
-console.log("---printStack---");
-stack.printStack();
+// console.log("---printStack---");
+// stack.printStack();
