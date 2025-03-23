@@ -1,6 +1,6 @@
 // time complexity: O(log n)
 // space complexity: O(1)
-function search(nums, target) {
+var search = function (nums, target) {
   let larry = 0;
   let richard = nums.length - 1;
 
@@ -15,8 +15,24 @@ function search(nums, target) {
     }
   }
   return -1;
+};
+
+// Test Case 1
+let array = [-1, 0, 3, 5, 9, 12];
+let target = 9;
+let result = search(array, target);
+if (result !== -1) {
+  console.log("Index of Target Value is: ", result);
+} else {
+  console.log("Target Value not found");
 }
 
-console.log(search([-1, 0, 3, 5, 9, 12], 9)); // 4
-console.log(search([-1, 0, 3, 5, 9, 12], 2)); // -1
-console.log(search([5], 5)); // 0
+// Test Case 2
+let array2 = [-1, 0, 3, 5, 9, 12];
+let target2 = 2;
+let result2 = search(array2, target2);
+if (result2 !== -1) {
+  console.log("Index of Target Value is: ", result2);
+} else {
+  console.log("Target Value not found");
+}
