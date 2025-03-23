@@ -24,12 +24,12 @@ var maxDepthDFS = function (root) {
   return result;
 };
 
-function maxDepthBFSRecursive(root) {
+function maxDepthDFSRecursive(root) {
   if (root === null) {
     return 0;
   }
-  const leftDepth = maxDepthBFSRecursive(root.left);
-  const rightDepth = maxDepthBFSRecursive(root.right);
+  const leftDepth = maxDepthDFSRecursive(root.left);
+  const rightDepth = maxDepthDFSRecursive(root.right);
   return Math.max(leftDepth, rightDepth) + 1;
 }
 
