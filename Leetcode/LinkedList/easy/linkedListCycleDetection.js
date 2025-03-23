@@ -1,73 +1,42 @@
-class Node {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-  }
-}
+import {
+  Node,
+  LinkedList,
+} from "../../../Data Structures/LinkedLIst/linkedlist.js";
 
 /**
- * LinkedList Implementation
+ * Detect cycle in linked list
  *
- * @class LinkedList
- * @typedef {LinkedList}
+ * @param {Node} head
+ * @return {boolean}
  */
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
+var hasCylce = function (head) {
+  let fast = head;
+  let slow = head;
 
-  /**
-   * push an elemenet to back of linkedList
-   *
-   * @param {*} data
-   */
-  push(data) {
-    let node = new Node(data);
-    let current;
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
 
-    if (this.head === null) {
-      this.head = node;
-    } else {
-      current = this.head;
-      while (current.next !== null) {
-        current = current.next;
-      }
-      current.next = node;
+    if (fast === slow) {
+      return true;
     }
   }
 
-  /** Prints Linked List elements */
-  printList() {
-    let dataList = [];
-    let current = this.head;
+  return false;
+};
 
-    while (current !== null) {
-      dataList.push(current.data);
-      current = current.next;
-    }
+/* ----------------------------- Linked List Use ---------------------------- */
 
-    console.log(dataList);
-  }
+let linkedList = new LinkedList();
+console.log("Default list");
+linkedList.push(10);
+linkedList.push(15);
+linkedList.push(20);
+linkedList.push(25);
+linkedList.printList();
+console.log("\n");
 
-  /**
-   * Detect cycle in linked list
-   *
-   * @param {Node} head
-   * @return {boolean}
-   */
-  hasCycle(head) {
-    let fast = head;
-    let slow = head;
-
-    while (fast !== null && fast.next !== null) {
-      fast = fast.next.next;
-      slow = slow.next;
-
-      if (fast === slow) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-}
+console.log("Does cylce exist?");
+linkedList.head.next.next.next.next = linkedList.head;
+console.log(hasCylce(linkedList.head)); // true
+console.log("\n");

@@ -8,7 +8,7 @@
  * @class Node
  * @typedef {Node}
  */
-class Node {
+export class Node {
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -21,9 +21,14 @@ class Node {
  * @class LinkedList
  * @typedef {LinkedList}
  */
-class LinkedList {
-  constructor() {
-    this.head = null;
+export class LinkedList {
+  constructor(...args) {
+    if (args.length === 0) {
+      this.head = null;
+    } else {
+      // if head is passed as argument
+      this.head = args[0];
+    }
   }
 
   /**
@@ -167,35 +172,35 @@ class LinkedList {
 
 /* ----------------------------- Linked List Use ---------------------------- */
 
-let linkedList = new LinkedList();
-console.log("Default list");
-linkedList.push(10);
-linkedList.push(15);
-linkedList.push(20);
-linkedList.push(25);
-linkedList.printList();
-console.log("\n");
+// let linkedList = new LinkedList();
+// console.log("Default list");
+// linkedList.push(10);
+// linkedList.push(15);
+// linkedList.push(20);
+// linkedList.push(25);
+// linkedList.printList();
+// console.log("\n");
 
-console.log("prepending value of 3");
-linkedList.prepend(3);
-linkedList.printList();
+// console.log("prepending value of 3");
+// linkedList.prepend(3);
+// linkedList.printList();
 
-console.log("adding value 5 at index 3");
-linkedList.addAtIndex(5, 3);
-linkedList.printList();
+// console.log("adding value 5 at index 3");
+// linkedList.addAtIndex(5, 3);
+// linkedList.printList();
 
-console.log("replace value at index 4 with value of 1");
-linkedList.replaceDataAtIndex(1, 4);
-linkedList.printList();
+// console.log("replace value at index 4 with value of 1");
+// linkedList.replaceDataAtIndex(1, 4);
+// linkedList.printList();
 
-console.log("replace value at index 0 with value of 1");
-linkedList.replaceDataAtIndex(1, 0);
-linkedList.printList();
+// console.log("replace value at index 0 with value of 1");
+// linkedList.replaceDataAtIndex(1, 0);
+// linkedList.printList();
 
-console.log("removing last element in linked list");
-linkedList.pop();
-linkedList.printList();
+// console.log("removing last element in linked list");
+// linkedList.pop();
+// linkedList.printList();
 
-console.log("remove element at index 0");
-linkedList.frontPop();
-linkedList.printList();
+// console.log("remove element at index 0");
+// linkedList.frontPop();
+// linkedList.printList();
