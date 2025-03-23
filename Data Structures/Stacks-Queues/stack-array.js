@@ -35,6 +35,11 @@ export class Stack {
   isEmpty() {
     return this.stack.length === 0;
   }
+  s;
+
+  size() {
+    return this.stack.length;
+  }
 
   /** print out stack */
   printStack() {
